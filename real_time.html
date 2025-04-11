@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTOS for Deterministic Scheduling</title>
+  <link rel="stylesheet" href="style(home).css"> 
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Real-Time Operating System for Deterministic Scheduling</h1>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#algorithms">Algorithms</a></li>
+          <li><a href="#architecture">System Architecture</a></li>
+          <li><a href="#metrics">Performance Metrics</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-container">
+      <h2>Real-Time Operating System for Critical Task Scheduling</h2>
+      <p>Optimized for Deterministic and Predictable Response Times to Time-Critical Tasks</p>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section id="features">
+    <div class="container">
+      <h2>Key Features of Our Real-Time Operating System</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Deterministic Behavior</h3>
+          <p>Guaranteed execution times for critical tasks.</p>
+        </div>
+        <div class="feature">
+          <h3>Preemptive Scheduling</h3>
+          <p>Dynamic task preemption to ensure high-priority task execution.</p>
+        </div>
+        <div class="feature">
+          <h3>Rate Monotonic & EDF Scheduling</h3>
+          <p>Support for both RMS and EDF algorithms.</p>
+        </div>
+        <div class="feature">
+          <h3>Priority Inheritance</h3>
+          <p>Prevents priority inversion during resource sharing.</p>
+        </div>
+        <div class="feature">
+          <h3>Efficient Context Switching</h3>
+          <p>Minimal overhead during task switching.</p>
+        </div>
+        <div class="feature">
+          <h3>Low-Latency Interrupt Handling</h3>
+          <p>Rapid response to hardware interrupts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Algorithms Section -->
+  <section id="algorithms">
+    <div class="container">
+      <h2>Real-Time Scheduling Algorithms</h2>
+      <div class="algo-details">
+        <a href="rms.html">
+          <button class="algo-box" onclick="simulateRMS()">
+            <h3>Rate Monotonic Scheduling (RMS)</h3>
+            <p>Static priority scheduling based on task periodicity.</p>
+          </button>
+        </a>
+        <a href="edf.html" onclick="simulateEDF()">
+          <button class="algo-box">
+            <h3>Earliest Deadline First (EDF)</h3>
+            <p>Dynamic priority scheduling based on task deadlines.</p>
+          </button>
+        </a>
+      </div>  
+    </div>
+  </section>
+
+  <!-- System Architecture Section -->
+  <section id="architecture">
+    <div class="container">
+      <h2>System Architecture</h2>
+      <div class="architecture-component">
+        <!-- Task Management -->
+        <h3>Task Management</h3>
+        <p>
+          The RTOS uses a Task Control Block (TCB) to manage tasks. Each task has its own TCB containing:
+          <ul>
+            <li>Task ID</li>
+            <li>Task State (Ready, Running, Blocked, Waiting)</li>
+            <li>Priority</li>
+            <li>Deadline (for EDF scheduling)</li>
+            <li>Stack Pointer</li>
+            <li>Program Counter</li>
+          </ul>
+        </p>
+        <img src="task-management-diagram.jpg" alt="Task Management Diagram">
+      </div>
+      <!-- Scheduler -->
+      <div class="architecture-component">
+        <h3>Scheduler</h3>
+        <p>
+          The RTOS supports two types of scheduling algorithms:
+          <ul>
+            <li><strong>Rate Monotonic Scheduling (RMS):</strong> Tasks with shorter periods are assigned higher priorities.</li>
+            <li><strong>Earliest Deadline First (EDF):</strong> Tasks with the earliest deadlines are given higher priority.</li>
+          </ul>
+        </p>
+        <img src="schedulers-diagram.jpg" alt="RMS and EDF Schedulers">
+      </div>
+      <!-- Timers and Interrupts -->
+      <div class="architecture-component">
+        <h3>Timers and Interrupts</h3>
+        <p>
+          Hardware timers track task execution times and deadlines, triggering interrupts when tasks need to be preempted or when external events occur.
+        </p>
+        <img src="timers-interrupts-diagram.jpg" alt="Timers and Interrupts Diagram">
+      </div>
+      <!-- Context Switching -->
+      <div class="architecture-component">
+        <h3>Context Switching</h3>
+        <p>
+          When a task is preempted, the RTOS saves the current task state (Program Counter, Registers, Stack Pointer) and restores the state of the new task. This ensures smooth and efficient task switching.
+        </p>
+        <img src="context-switching-diagram.jpg" alt="Context Switching Diagram">
+      </div>
+      <!-- Priority Inheritance -->
+      <div class="architecture-component">
+        <h3>Priority Inheritance</h3>
+        <p>
+          To prevent priority inversion, the RTOS temporarily elevates the priority of a lower-priority task if it holds a resource required by a higher-priority task.
+        </p>
+        <img src="priority-inheritance-diagram.jpeg" alt="Priority Inheritance Diagram">
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Metrics Section -->
+  <section id="performance-metrics">
+      <h2>Performance Metrics</h2>
+      <div class="metric">
+        <h3>1. Task Jitter</h3>
+        <p><strong>Definition:</strong> Task jitter refers to the variation in the actual start times of periodic tasks from their expected start times.</p>
+        <p><strong>Importance:</strong> In real-time systems, minimizing jitter is crucial because time-sensitive tasks must be executed as close as possible to their expected schedule.</p>
+      </div>
+      <div class="metric">
+        <h3>2. Context Switch Time</h3>
+        <p><strong>Definition:</strong> The time taken by the RTOS to switch from executing one task to another. It includes saving the state of the current task and loading the state of the next task.</p>
+        <p><strong>Importance:</strong> Minimizing context switch time is essential for ensuring that the CPU spends more time executing tasks rather than switching between them.</p>
+      </div>
+      <div class="metric">
+        <h3>3. Deadline Miss Ratio</h3>
+        <p><strong>Definition:</strong> The ratio of tasks that miss their deadlines to the total number of tasks. A task is said to miss its deadline if it does not complete execution before its deadline.</p>
+        <p><strong>Importance:</strong> In hard real-time systems, missing a deadline can lead to system failure. This metric evaluates how well the scheduling algorithm ensures task completion within the defined deadlines.</p>
+      </div>
+    
+      <div class="metric">
+        <h3>4. CPU Utilization</h3>
+        <p><strong>Definition:</strong> CPU utilization refers to the percentage of time the CPU spends executing tasks versus idling or handling context switches.</p>
+        <p><strong>Importance:</strong> Efficient CPU utilization is necessary to ensure that real-time tasks meet their deadlines while optimizing system performance. In RMS and EDF, utilization affects schedulability.</p>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <p>Contact: rtos_project@example.com | Phone: +91-1234567894</p>
+      <p>&copy; 2024 RTOS Project. All rights reserved.</p>
+    </div>
+  </footer>
+    
+</body>
+</html>

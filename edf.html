@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDF Scheduling Algorithm</title>
+    <link rel="stylesheet" href="style(edf).css">
+    <script src="script-edf.js" defer></script> 
+</head>
+<body>
+    <div id="edf-simulation">
+        <h3>Earliest Deadline First (EDF) Simulation</h3>
+        <p>Enter tasks with their periods and execution times:</p>
+        <form>
+          <label>Task 1 Period:</label>
+          <input type="number" id="task1-period" placeholder="e.g., 4" min="1" required />
+          <label>Task 1 Execution Time:</label>
+          <input type="number" id="task1-exec" placeholder="e.g., 1" min="1" required /><br>
+      
+          <label>Task 2 Period:</label>
+          <input type="number" id="task2-period" placeholder="e.g., 5" min="1" required />
+          <label>Task 2 Execution Time:</label>
+          <input type="number" id="task2-exec" placeholder="e.g., 2" min="1" required /><br>
+      
+          <label>Task 3 Period:</label>
+          <input type="number" id="task3-period" placeholder="e.g., 8" min="1" required />
+          <label>Task 3 Execution Time:</label>
+          <input type="number" id="task3-exec" placeholder="e.g., 3" min="1" required /><br>
+      
+          <button type="button" onclick="simulateEDF()">Simulate EDF</button>
+        </form>
+      
+        <h4>Simulation Result:</h4>
+        <div id="edf-results"></div>
+    </div> 
+        
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* General body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Container for the RMS form */
+#rms-simulation {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Section title styling */
+#rms-simulation h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+/* Form instruction styling */
+#rms-simulation p {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling the form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Label and input field styles */
+form label {
+  display: block;
+  white-space: nowrap;
+  width: 180px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+form input[type="number"] {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+/* Button styling */
+#rms-simulation button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#rms-simulation button:hover {
+  background-color: #357ab8;
+}
+
+/* Simulation Result Box */
+#rms-results {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 150px;
+  overflow-y: auto;
+}
+
+#rms-results p {
+  margin: 0;
+  padding: 5px;
+  font-size: 0.9rem;
+}
